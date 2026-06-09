@@ -87,3 +87,11 @@ Framework de Testes: Cypress v13+
 IDE Recomendada: Visual Studio Code
 
 Ao clonar este repositório em uma nova máquina ou nova empresa, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js v20+, basta rodar npm install na raiz do projeto para que o NPM configure todas as dependências automaticamente!
+
+    // Comandos para rodar o Cypress
+    // >NPM Scripts: Focus on NPM Scripts View para aparecer os scripts no menu lateral do VSCode
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+
+    // faker.js para gerar dados aleatorios nos testes
+    npm install @faker-js/faker --save-dev
