@@ -95,3 +95,6 @@ Ao clonar este repositório em uma nova máquina ou nova empresa, você não pre
 
     // faker.js para gerar dados aleatorios nos testes
     npm install @faker-js/faker --save-dev
+
+    // Baixar widged Cypress Snippets (CLiff SU)
+    // Baixar widged Open Cypress 

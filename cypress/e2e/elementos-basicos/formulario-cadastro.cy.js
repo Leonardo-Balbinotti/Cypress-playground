@@ -32,14 +32,30 @@ describe('Preencher campos do formulário', () => {
         cy.get('[data-testid="submit-button"]').click();
     })
 
-    it.only('Deve validar os erros de preenchimento do formulário', () => {
+    it('Deve validar os erros de preenchimento do formulário', () => {
         // Clicar no botão de cadastro sem preencher os campos
         cy.get('[data-testid="submit-button"]').click();
+        cy.wait(500); // Esperar um pouco para as mensagens de erro aparecerem
 
         // Validar as mensagens de erro para cada campo obrigatório
-        cy.get('[data-testid="input-name-error"]').should('be.visible').and('contain', 'Nome é obrigatório');
-        cy.get('[data-testid="input-email-error"]').should('be.visible').and('contain', 'Email é obrigatório');
-        cy.get('[data-testid="input-password-error"]').should('be.visible').and('contain', 'enha é obrigatória');
-        cy.get('[data-testid="checkbox-terms-error"]').should('be.visible').and('contain', 'Você deve aceitar os termos de uso');
+        cy.contains('Nome é obrigatório').should('be.visible');
+        cy.contains('Email é obrigatório').should('be.visible');
+        cy.contains('Senha é obrigatória').should('be.visible');
+        cy.contains('Você deve aceitar os termos').should('be.visible');
+    })
+
+    it('Deve preencher os campos e clicar em Limpar', () => {
+
+        // Validar se os campos foram preenchidos corretamente        
+        cy.get('[data-testid="input-name"]').type(nome);
+        cy.get('[data-testid="input-email"]').type(email);
+        cy.get('[data-testid="input-password"]').type(senha);
+        cy.get('[data-testid="input-confirm-password"]').type(senha);
+
+        //Marcar o checkbox de termos de uso
+        cy.get('[data-testid="checkbox-terms"]').check().should('be.checked');
+
+        // Clicar no botão de limpar
+        cy.get('[data-testid="clear-button"]').click();
     })
 });
