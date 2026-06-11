@@ -1,4 +1,4 @@
-describe('Acessando o site Playground', () => {
+    describe('Acessando o site Playground', () => {
    
     it('Deve acessar o site Playground', () => {
         // Acessar o site Playground

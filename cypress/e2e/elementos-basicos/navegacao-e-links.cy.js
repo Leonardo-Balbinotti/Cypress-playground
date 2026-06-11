@@ -10,11 +10,22 @@ describe('Navegação e links', () => {
         cy.get('[data-testid="link-about"]').click();
         cy.get('[data-testid="link-contact"]').click();
         cy.get('[data-testid="link-products"]').click();
-        cy.get('[data-testid="button-back"]').click();
-
-        //Clicar no botão para retornar
-        Cypress._.times(limite, (i) => {
+        Cypress._.times(limite, () => {
             cy.get('[data-testid="button-back"]').click();
+
+            //Clicar no botão para retornar
+            cy.contains('4 página(s)').should('be.visible');
         })
+
+        // 1. Preparar uma função window.open para validar o link externo
+        cy.window().then((win) => {
+            cy.stub(win, 'open').as('windowOpen');
+        });
+
+        // 2. Clicamos no link
+        cy.get('[data-testid="link-external"]').click();
+
+        // 3. Verificamos se o espião foi chamado com a URL correta
+        cy.get('@windowOpen').should('be.calledWith', 'https://github.com/qamichaelmaia');
     })
 });
