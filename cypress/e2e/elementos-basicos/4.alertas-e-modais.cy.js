@@ -16,7 +16,7 @@ describe('Alertas e modais', () => {
         cy.get('[data-testid="button-alert"]').click()
     })
 
-    it.only('Deve clicar em Mostrar Confirm', () => {
+    it('Deve clicar em Mostrar Confirm', () => {
         // Clicar no botão para mostrar o confirm
         cy.on('window:confirm', (str) => {
             // Validar o texto do confirm
@@ -25,8 +25,18 @@ describe('Alertas e modais', () => {
             //Retornar false para cancelar o confirm
             return true
         });
-        cy.get('[data-testid="button-confirm"]').click().
-            cy.get('[data-testid="toast-message"]').should('have.text', 'Confirmado!')
+        //
+        cy.get('[data-testid="button-confirm"]').click()
+        cy.get('[data-testid="toast-message"]').should('have.text', 'Confirmado!')
+    })
+
+    it('Deve clicar em Mostrar Prompt', () => {
+        // Clicar no botão para mostrar o prompt
+        cy.window().then((win) => {
+            cy.stub(win, 'prompt').returns('Cypress Test')
+        })
+        cy.get('[data-testid="button-prompt"]').click()
+        cy.get('[data-testid="toast-message"]').should('have.text', 'Você digitou: Cypress Test')
     })
 
 })
