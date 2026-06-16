@@ -27,7 +27,7 @@ describe('Checkboxes e Radios', () => {
         // Validar opção selecionada
         cy.get('[data-testid="radio-output"]').should('contain', 'Selecionado: radio1')
         // Selecionar a opção 2
-        cy.get('[data-testid="radio-radio2"]').check().should('be.checsked')
+        cy.get('[data-testid="radio-radio2"]').check().should('be.checked')
         // Validar opção selecionada
         cy.get('[data-testid="radio-output"]').should('contain', 'Selecionado: radio2')
          // Selecionar a opção 3

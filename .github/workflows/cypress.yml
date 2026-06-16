@@ -1,0 +1,21 @@
+name: Testes Automatizados Cypress
+
+# 1. Quando deve ser executado?
+on: 
+  push:
+    branches:
+      - main # Vai rodar toda vez que mandar código pra branch main
+
+# 2. O que ele deve fazer?
+jobs:
+  rodar-testes:
+    runs-on: ubuntu-latest # Liga um computador Linux virtual na nuvem
+    
+    steps:
+      - name: Pegar o código do projeto
+        uses: actions/checkout@v4
+
+      - name: Instalar tudo e rodar o Cypress
+        uses: cypress-io/github-action@v6
+        # Esse comando oficial do Cypress já instala o Node, 
+        # dá 'npm install' nas dependências e roda 'npx cypress run'!
