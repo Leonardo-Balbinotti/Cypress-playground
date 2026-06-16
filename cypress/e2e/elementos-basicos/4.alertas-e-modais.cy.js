@@ -33,10 +33,20 @@ describe('Alertas e modais', () => {
     it('Deve clicar em Mostrar Prompt', () => {
         // Clicar no botão para mostrar o prompt
         cy.window().then((win) => {
-            cy.stub(win, 'prompt').returns('Cypress Test')
+            cy.stub(win, 'prompt').as('promptEspiao').returns('Cypress Test')
         })
+        // Clicar no botão para mostrar o prompt
         cy.get('[data-testid="button-prompt"]').click()
-        cy.get('[data-testid="toast-message"]').should('have.text', 'Você digitou: Cypress Test')
+        // Validar o texto do prompt
+        cy.get('@promptEspiao').should('have.been.calledWith', 'Digite seu nome:')
     })
 
+    it.only('Deve clicar em Abrir Modal', () => {
+        // Clicar no botão para abrir o modal
+        cy.get('[data-testid="button-modal"]').click()
+        //Validar o conteúdo do modal
+                cy.contains('Este é um modal personalizado com overlay e botão de fechar.').should('exist')
+        //Fechar o modal
+        cy.get('[data-testid="modal-close-button"]').click()
+    })
 })
