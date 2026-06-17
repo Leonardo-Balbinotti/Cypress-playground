@@ -99,5 +99,3 @@ Ao clonar este repositório em uma nova máquina ou nova empresa, você não pre
     // Baixar widged Cypress Snippets (CLiff SU)
     // Baixar widged Open Cypress 
     // Baixar CSS Selector Helper para ajudar a identificar os seletores
-
-    teste PR
