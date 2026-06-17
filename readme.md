@@ -100,3 +100,12 @@ Ao clonar este repositório em uma nova máquina ou nova empresa, você não pre
     // Baixar widged Open Cypress 
     // Baixar CSS Selector Helper para ajudar a identificar os seletores
 
+## ⚙️ Integração Contínua (CI/CD) com GitHub Actions
+
+A infraestrutura de integração contínua deste repositório foi projetada para garantir um fluxo de trabalho seguro e a validação constante do projeto.
+
+**Principais implementações:**
+* **Gatilhos de Execução:** Os testes rodam automaticamente em cada *Pull Request* direcionado à branch `main` e através de *Nightly Builds* agendados de segunda a sexta-feira.
+* **Segurança e Qualidade:** Regras de *Branch Protection* configuradas na `main`, exigindo a aprovação da pipeline do Cypress (*status checks*) antes de permitir a mesclagem do código.
+* **Gestão de Evidências:** Geração de *Artifacts* ao fim das execuções, salvando automaticamente vídeos e *screenshots* dos testes no servidor do GitHub Actions.
+* **Notificações:** Integração via *Webhook* com o Discord para alertas em tempo real sobre o resultado das execuções diárias.
