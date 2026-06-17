@@ -19,3 +19,13 @@ jobs:
         uses: cypress-io/github-action@v6
         # Esse comando oficial do Cypress já instala o Node, 
         # dá 'npm install' nas dependências e roda 'npx cypress run'!
+        
+      - name: Salvar vídeos e screenshots (Evidências)
+        uses: actions/upload-artifact@v4
+        if: always() # A mágica tá aqui: manda salvar MESMO que o teste falhe!
+        with:
+          name: evidencias-cypress
+          path: |
+            cypress/videos
+            cypress/screenshots
+          retention-days: 7 # Guarda os arquivos por 7 dias para economizar espaço
