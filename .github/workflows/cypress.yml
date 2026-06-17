@@ -17,14 +17,17 @@ jobs:
     runs-on: ubuntu-latest # Liga um computador Linux virtual na nuvem
     
     steps:
+      # --- Pegar o código do projeto ---
       - name: Pegar o código do projeto
         uses: actions/checkout@v4
 
+      # --- Instalar o Node.js ---
       - name: Instalar tudo e rodar o Cypress
         uses: cypress-io/github-action@v6
         # Esse comando oficial do Cypress já instala o Node, 
-        # dá 'npm install' nas dependências e roda 'npx cypress run'!
+        # Executa 'npm install' nas dependências e roda 'npx cypress run'!
         
+        # --- Salvar evidências do teste ---
       - name: Salvar vídeos e screenshots (Evidências)
         uses: actions/upload-artifact@v4
         if: always() # Salva MESMO que o teste falhe!
@@ -34,3 +37,12 @@ jobs:
             cypress/videos
             cypress/screenshots
           retention-days: 7 # Guarda os arquivos por 7 dias para economizar espaço
+      
+          # --- Resposável por avisar no discord ---
+      - name: Avisar no Discord que os testes acabaram
+        uses: sarisia/actions-status-discord@v1
+        if: always() # Manda a mensagem mesmo se o teste falhar
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "🤖 Testes do Cypress Finalizados!"
+          description: "Os testes terminaram de rodar no GitHub Actions. Confere lá!"
