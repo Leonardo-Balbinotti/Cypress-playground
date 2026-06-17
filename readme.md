@@ -100,4 +100,5 @@ Ao clonar este repositório em uma nova máquina ou nova empresa, você não pre
     // Baixar widged Open Cypress 
     // Baixar CSS Selector Helper para ajudar a identificar os seletores
 
-    teste PR
+    
+    asdfçgas,d.g~çasgi
