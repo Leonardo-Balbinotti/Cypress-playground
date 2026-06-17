@@ -4,7 +4,12 @@ name: Testes Automatizados Cypress
 on: 
   push:
     branches:
-      - main # Vai rodar toda vez que mandar código pra branch main
+      - main
+  pull_request:
+    branches:
+      - main # Roda quando alguém tentar fazer um Pull Request para a main
+  schedule:
+    - cron: '0 6 * * 1-5' # Roda sozinho de segunda a sexta, às 08h00 da manhã
 
 # 2. O que ele deve fazer?
 jobs:
@@ -22,7 +27,7 @@ jobs:
         
       - name: Salvar vídeos e screenshots (Evidências)
         uses: actions/upload-artifact@v4
-        if: always() # A mágica tá aqui: manda salvar MESMO que o teste falhe!
+        if: always() # Salva MESMO que o teste falhe!
         with:
           name: evidencias-cypress
           path: |
