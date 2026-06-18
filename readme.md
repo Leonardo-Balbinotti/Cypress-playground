@@ -109,3 +109,28 @@ A infraestrutura de integração contínua deste repositório foi projetada para
 * **Segurança e Qualidade:** Regras de *Branch Protection* configuradas na `main`, exigindo a aprovação da pipeline do Cypress (*status checks*) antes de permitir a mesclagem do código.
 * **Gestão de Evidências:** Geração de *Artifacts* ao fim das execuções, salvando automaticamente vídeos e *screenshots* dos testes no servidor do GitHub Actions.
 * **Notificações:** Integração via *Webhook* com o Discord para alertas em tempo real sobre o resultado das execuções diárias.
+---
+
+### 📌 Cola Rápida: Fluxo de Trabalho do QA (Git)
+
+**1. Preparar o terreno (garantir que está na main atualizada):**
+`git checkout main`
+`git pull`
+
+**2. Criar o desvio (nova branch):**
+`git checkout -b nome-da-sua-branch`
+
+**3. Salvar as alterações feitas no código:**
+`git add .`
+`git commit -m "chore: descrição do que foi feito"`
+
+**4. Enviar para o GitHub pela primeira vez (vincular a branch):**
+`git push -u origin nome-da-sua-branch`
+
+*(Neste momento, abrir o Pull Request no GitHub, aguardar o Cypress passar e clicar em Merge).*
+
+**5. Faxina local pós-Merge:**
+`git checkout main`
+`git pull`
+`git branch -d nome-da-sua-branch`
+`git fetch -p`
