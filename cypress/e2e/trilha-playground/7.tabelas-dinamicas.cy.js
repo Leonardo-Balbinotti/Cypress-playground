@@ -1,8 +1,11 @@
+const { it } = require("@faker-js/faker")
+
 describe('Teste de tabelas dinamicas', () => {
     beforeEach(() => {
         // Acessa a página do playground antes de cada teste
         cy.acessarPlayground()
     })
+
     it('Testar o filtro da tabela procurando por nome e email', () => {
         // Implementar o teste de filtro da tabela
         cy.get('[data-testid="table-search"]').type('João Silva')
@@ -34,38 +37,63 @@ describe('Teste de tabelas dinamicas', () => {
         cy.get('[data-testid="table-toast"]').should('be.visible')
     })
 
-    it('Testar ordenação das colunas', () => {
+    it('Testar ordenação da coluna Nome', () => {
         // 1. Clica no título da coluna para acionar a ordenação
         cy.get('th').contains('Name').click()
 
-        // Cria uma lista vazia para guardar os nomes que vamos ler
+        // Cria uma lista vazia para guardar os nomes que vai ser lido
         let nomesNaTela = []
 
         // 2. Pega todas as células da coluna Name
-        // Pelo seu print anterior, o Checkbox é a coluna 1, então o Name é a coluna 2 (nth-child(2))
         cy.get('tbody tr td:nth-child(2)').each(($celula) => {
 
             // Extrai o texto, remove espaços em branco (trim) e guarda na lista
             nomesNaTela.push($celula.text().trim())
 
         }).then(() => {
-            // 3. O .then() garante que só vamos validar DEPOIS de ler todas as linhas
+            // 3. O .then() garante que só vamos validar depois de ler todas as linhas
 
-            // Cria uma cópia da nossa lista e pede pro JavaScript ordenar alfabeticamente
+            // Cria uma cópia da lista e pede pro JS ordenar alfabeticamente
             const nomesOrdenadosPeloJs = [...nomesNaTela].sort()
 
-            // 4. A prova real: Compara as duas listas!
-            // Usamos o 'deep.equal' porque estamos comparando arrays e não textos simples
+            // 4. Compara as duas listas!
+            // Utiliza o 'deep.equal' para comparar arrays e não textos simples
             expect(nomesNaTela).to.deep.equal(nomesOrdenadosPeloJs)
         })
     })
-})
+  
+    it.only('Testar ordenação da coluna Email', () => {
+        // 1. Clica no título da coluna  para acionar a ordenação
+        cy.get('th').contains('Email').click()
 
+        //Criar uma lista vazia para guardar os emails que vai ser lido
+        let emailsNaTela = []
+
+        // 2. Pega todas as células da coluna Email
+        cy.get('tbody tr td:nth-child(3)').each(($celula) => {
+
+            //Extrai o texto, remove espaços em branco (trim) e guarda na lista
+            emailsNaTela.push($celula.text().trim ())
+
+        }).then(() => {
+            //3. o .then() garante que só vali validar depois de ler todas as linhas
+
+            // Cria uma cópia da lista e pede pro JS ordenar alfabeticamente
+            const nomeOrdenadosPeloJs = [...emailsNaTela].sort()
+
+            // 4. Compara as duas listas!
+            // Utiliza o 'deep.equal' para comparar arrays e não textos simples
+            expect(emailsNaTela).to.deep.equal(nomeOrdenadosPeloJs)
+
+        })
+    })
+
+})
 
 
 
 
 // 1. Testar o filtro da tabela procurando por nome e email
 // 2. Testar  o checkbox selecionando 3 cadastros e depois  desmarcando 1 e após isso clicar no checkbox pra selecionar todos
-//  3. Testar a coluna de ação editar e excluir
+// 3. Testar a coluna de ação editar e excluir
 // 4. Testar a ordenação de todas as colunas 
