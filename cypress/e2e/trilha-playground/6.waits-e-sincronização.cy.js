@@ -17,7 +17,7 @@ describe('Conteudo dinâmico', () => {
         // Validar que a mensagem está oculta
         cy.get('[data-testid="toggleable-element"]').should('not.exist')
     })
-    it.only ('Deve aguardar carregar os dados', () => {
+    it ('Deve aguardar carregar os dados', () => {
         // Clicar no botão para carregar os dados
         cy.get('[data-testid="slow-load-button"]').click().wait(3000)
         // Validar que os dados foram carregados corretamente

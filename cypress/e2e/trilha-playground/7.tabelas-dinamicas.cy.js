@@ -1,5 +1,3 @@
-const { it } = require("@faker-js/faker")
-
 describe('Teste de tabelas dinamicas', () => {
     beforeEach(() => {
         // Acessa a página do playground antes de cada teste
@@ -62,7 +60,7 @@ describe('Teste de tabelas dinamicas', () => {
         })
     })
   
-    it.only('Testar ordenação da coluna Email', () => {
+    it('Testar ordenação da coluna Email', () => {
         // 1. Clica no título da coluna  para acionar a ordenação
         cy.get('th').contains('Email').click()
 
