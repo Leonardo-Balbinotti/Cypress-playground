@@ -126,7 +126,7 @@ describe('Teste de tabelas dinamicas', () => {
 
     })
     })
-    it.only('Validar botões da coluna Ação', () => {
+    it('Validar botões da coluna Ação', () => {
         // 1. Clica no botão de Editar da primeira linha
         cy.get('[data-testid="edit-1"]').click()
         // 2. Verifica se a mensagem de edição está visível
