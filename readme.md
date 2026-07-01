@@ -99,6 +99,17 @@ Ao clonar este repositório em uma nova máquina ou nova empresa, você não pre
     // Baixar widged Cypress Snippets (CLiff SU)
     // Baixar widged Open Cypress 
     // Baixar CSS Selector Helper para ajudar a identificar os seletores
+    // Baixar Kilo code--
+    // Baixar Widget continue e Ollama qwen2.5-coder:1.5b-base
+        Setup do Ollama (Linux)
+        Rodar o Modelo: No terminal, execute o comando para carregar o cérebro da IA:
+        Bash
+        ollama run qwen2.5-coder:1.5b-base
+
+        
+        Verificar o Serviço: Caso precise reiniciar ou checar se ele está rodando em segundo plano:
+        Bash
+        systemctl status ollama
 
 ## ⚙️ Integração Contínua (CI/CD) com GitHub Actions
 
