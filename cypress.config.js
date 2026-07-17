@@ -8,6 +8,8 @@ module.exports = defineConfig({
     viewportHeight: 720, // Adiciona a altura padrão
     setupNodeEvents(on, config) {
       // implement node event listeners here
-    },
+  },
+    // Essa configuração aqui é a que manda no "Watch" do Cypress!
+    watchForFileChanges: false,
   },
 });
