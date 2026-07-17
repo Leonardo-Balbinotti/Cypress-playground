@@ -144,4 +144,4 @@ A infraestrutura de integração contínua deste repositório foi projetada para
 `git checkout main`
 `git pull`
 `git branch -d nome-da-sua-branch`
-`git fetch -p
+`git fetch -p 
