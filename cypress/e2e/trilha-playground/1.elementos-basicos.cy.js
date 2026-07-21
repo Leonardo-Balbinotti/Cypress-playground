@@ -8,14 +8,14 @@ describe('Clics e inputs', () => {
     it('Deve clicar no botão', () => {
         // Executa o clique simples 5 vezes
         Cypress._.times(5, () => {
-            cy.get('[data-testid="click-button"]').click()
+            cy.get('[data-testid="click-button"]').click();
         })
     })
 
     it('Deve clicar no botão de duplo clique', () => {
         // Executa o clique duplo 5 vezes
         Cypress._.times(5, () => {
-            cy.get('[data-testid="double-click-button"]').dblclick()
+            cy.get('[data-testid="double-click-button"]').dblclick();
         })
     })
 
@@ -35,25 +35,25 @@ describe('Clics e inputs', () => {
 
     it('Deve selecionar uma opção no campo de seleção', () => {
         // Abre o menu de seleção
-        cy.get('[data-testid="select-input"]').eq(0).click()
+        cy.get('[data-testid="select-input"]').eq(0).click();
         // Seleciona a opção com o texto 'Cypress'
-        cy.contains('Cypress').click()
+        cy.contains('Cypress').click();
     })
 
     it('Deve mover o slider de forma simples', () => {
         // Define o valor do slider como 75
-        cy.get('[data-testid="range-input"]').invoke('val', 75)
+        cy.get('[data-testid="range-input"]').invoke('val', 75);
         // Dispara o evento de entrada para atualizar a UI
-        cy.get('[data-testid="range-input"]').trigger('input', { force: true })
+        cy.get('[data-testid="range-input"]').trigger('input', { force: true });
         // Dispara o evento de mudança para confirmar a alteração
-        cy.get('[data-testid="range-input"]').trigger('change', { force: true })
+        cy.get('[data-testid="range-input"]').trigger('change', { force: true });
 
         // Valida se o valor do slider é igual a 75
-        cy.get('[data-testid="range-input"]').should('have.value', '75')
+        cy.get('[data-testid="range-input"]').should('have.value', '75');
     })
     
     it('Deve marcar o toggle switch', () => {
         // Clica no toggle switch para marcar
-        cy.get('[data-testid="toggle-switch"]').click()
+        cy.get('[data-testid="toggle-switch"]').click();
     })
 }) // Fechamento correto do 'describe'
