@@ -174,7 +174,7 @@ git push -u origin feature/nome-da-sua-branch
 ```
 Neste momento, abra o Pull Request no GitHub, aguarde a pipeline do Cypress passar e, se tudo estiver verde, clique em Merge.
 
-5. Faxina local (Pós-Merge):
+5. Limepza local (Pós-Merge):
 
 ```Bash
 git checkout main
