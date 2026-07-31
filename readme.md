@@ -76,7 +76,7 @@ cd estudos-cypress-playground
 npm init -y
 ```
 
-3. 📦 Instalação do Cypress e Dependências
+### 3. 📦 Instalação do Cypress e Dependências
 Adicione o Cypress e o Faker.js como dependências de desenvolvimento (devDependencies), mantendo o ambiente isolado:
 
 ```bash
@@ -84,7 +84,7 @@ Adicione o Cypress e o Faker.js como dependências de desenvolvimento (devDepend
 npm install cypress --save-dev
 ```
 
-# Instalar o Faker.js para geração de dados aleatórios (Massa de Teste)
+### Instalar o Faker.js para geração de dados aleatórios (Massa de Teste)
 ```bash
 npm install @faker-js/faker --save-dev
 ```
