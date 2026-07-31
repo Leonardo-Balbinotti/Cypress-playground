@@ -30,7 +30,7 @@ Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base 
 * **Geração de Dados:** Faker.js
 * **IDE Recomendada:** Visual Studio Code (VS Code)
 
-> **💡 Dica de Ouro:** Ao clonar este repositório em uma nova máquina, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js configurado, basta rodar `npm install` na raiz do projeto para baixar todas as dependências automaticamente!
+> **💡 Dica:** Ao clonar este repositório em uma nova máquina, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js configurado, basta rodar `npm install` na raiz do projeto para baixar todas as dependências automaticamente!
 
 ---
 
@@ -45,20 +45,24 @@ Para evitar conflitos de versões de pacotes globais e bugs de compatibilidade, 
 # 1. Remover versões legadas do Node/NPM do sistema
 sudo apt remove nodejs npm -y
 sudo apt autoremove -y
-
+```
+```bash
 # 2. Baixar e instalar o script oficial do NVM
 curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh) | bash
-
+```
+```bash
 # 3. Atualizar e recarregar as configurações do terminal
 source ~/.bashrc
-
+```
+```bash
 # 4. Instalar a versão estável e compatível do Node.js (LTS v20)
 nvm install 20
-
+```
+```bash
 # 5. Validar a instalação
 node -v
 npm -v
-
+```
 
 2. 📂 Inicializando o Projeto
 Crie a pasta dedicada para o projeto e inicialize o gerenciador de pacotes:
