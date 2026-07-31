@@ -48,7 +48,7 @@ sudo apt autoremove -y
 ```
 ```bash
 # 2. Baixar e instalar o script oficial do NVM
-curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)
+curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh) | bash
 ```
 ```bash
 # 3. Atualizar e recarregar as configurações do terminal
@@ -101,7 +101,7 @@ Para facilitar a execução diária, os comandos abaixo foram mapeados no packag
 (Dica no VS Code: Utilize a aba "NPM Scripts" no menu lateral para rodar com um clique).
 
 ```bash
-JSON
+json
 "scripts": {
   "cy:open": "cypress open", 
   "cy:run": "cypress run"
@@ -116,13 +116,13 @@ npm run cy:run (Modo Headless): Executa os testes em segundo plano (terminal). E
 
 Para garantir produtividade na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
 
-Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
+* **Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
 
-Recorder Extensão do Google chrome para mapear um cenário de teste, mapeando cada clique e ação realizada enquanto está ativo.
+* **Recorder Extensão do Google chrome para mapear um cenário de teste, mapeando cada clique e ação realizada enquanto está ativo.
 
-CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores complexos.
+* **CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores complexos.
 
-Continue: Widget de IA integrado à IDE.
+* **Continue: Widget de IA integrado à IDE.
 
 ### Setup do Assistente de IA Local (Ollama)
 Utilizado o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
@@ -174,7 +174,7 @@ git push -u origin feature/nome-da-sua-branch
 ```
 Neste momento, abra o Pull Request no GitHub, aguarde a pipeline do Cypress passar e, se tudo estiver verde, clique em Merge.
 
-5. Limepza local (Pós-Merge):
+5. Limpeza local (Pós-Merge):
 
 ```Bash
 git checkout main
