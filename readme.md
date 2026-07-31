@@ -1,25 +1,48 @@
 # 🧪 Cypress Automation Studio - QA Playground
 
-Este repositório foi estruturado com o objetivo de registrar o passo a passo completo para a configuração de um ambiente de automação de testes utilizando **Cypress** do zero em sistemas Linux (focado no Linux Mint). 
+![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Linux Mint](https://img.shields.io/badge/Linux_Mint-87C53F?style=for-the-badge&logo=linux-mint&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
-Ele serve como um excelente portfólio para o GitHub e também como um guia rápido (cheat sheet) para futuras consultas ou onboarding em novos desafios profissionais, garantindo eficiência e padronização no setup inicial.
+Este repositório foi estruturado com o objetivo de registrar o passo a passo completo para a configuração de um ambiente de automação de testes E2E utilizando **Cypress** do zero, com foco em ambientes Linux. 
+
+Ele serve como um portfólio prático de automação e também como um **Guia Rápido (Cheat Sheet)** para futuras consultas e *onboardings* em novos desafios profissionais, garantindo eficiência e padronização no setup inicial de qualquer projeto.
 
 ---
 
 ## 🎯 Alvo das Automações
-Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base os desafios práticos do [QA Playground](https://playground-for-qa.vercel.app/playground), cobrindo validações de elementos web como formulários, botões, tabelas e fluxos dinâmicos.
+
+Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base os desafios práticos do [QA Playground](https://playground-for-qa.vercel.app/playground), cobrindo validações de elementos web complexos, tais como:
+* Formulários dinâmicos e validações de input.
+* Interação com botões e iframes.
+* Manipulação de tabelas e extração de dados.
+* Fluxos dinâmicos e Shadow DOM.
+
+---
+
+## 🛠️ Stack Tecnológica & Ambiente
+
+* **Sistema Operacional:** Linux  (Base Debian/Ubuntu)
+* **Ambiente de Execução:** Node.js (v20+ LTS)
+* **Gerenciador de Pacotes:** NPM / NVM (Node Version Manager)
+* **Framework de Testes:** Cypress v13+
+* **Geração de Dados:** Faker.js
+* **IDE Recomendada:** Visual Studio Code (VS Code)
+
+> **💡 Dica de Ouro:** Ao clonar este repositório em uma nova máquina, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js configurado, basta rodar `npm install` na raiz do projeto para baixar todas as dependências automaticamente!
 
 ---
 
 ## 🚀 Guia de Instalação e Configuração (Do Zero)
 
-Siga as etapas abaixo no terminal (`Ctrl + Alt + T`) para preparar o ambiente local e inicializar o projeto com as melhores práticas de mercado.
+Siga as etapas abaixo no terminal (`Ctrl + Alt + T`) para preparar o ambiente local com as melhores práticas de mercado.
 
-### 1. ⚙️ Pré-requisitos: Configurando o Node.js via NVM
-Para evitar conflitos de versões de pacotes globais e bugs de compatibilidade com o Cypress moderno, a prática recomendada no ecossistema Linux é utilizar o **NVM (Node Version Manager)** para gerenciar o Node.js.
+### 1. ⚙️ Configurando o Node.js via NVM
+Para evitar conflitos de versões de pacotes globais e bugs de compatibilidade, a prática recomendada no ecossistema Linux é utilizar o NVM.
 
 ```bash
-# 1. Remover versões legadas do Node/NPM do sistema (evita conflitos)
+# 1. Remover versões legadas do Node/NPM do sistema
 sudo apt remove nodejs npm -y
 sudo apt autoremove -y
 
@@ -29,119 +52,111 @@ curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https
 # 3. Atualizar e recarregar as configurações do terminal
 source ~/.bashrc
 
-# 4. Instalar a versão estável e compatível do Node.js (LTS v20 ou superior)
+# 4. Instalar a versão estável e compatível do Node.js (LTS v20)
 nvm install 20
 
-# 5. Validar se a instalação foi bem-sucedida
+# 5. Validar a instalação
 node -v
 npm -v
 
-2. 📂 Inicializando a Estrutura do Projeto
-Crie uma pasta dedicada para o projeto, abra-a no seu editor de código (como o VS Code) e inicialize o gerenciador de pacotes local:
 
-# Criar a pasta do repositório
+2. 📂 Inicializando o Projeto
+Crie a pasta dedicada para o projeto e inicialize o gerenciador de pacotes:
+
+Bash
 mkdir estudos-cypress-playground
 cd estudos-cypress-playground
 
-# Inicializar o arquivo package.json com as configurações padrão
+# Inicializar o package.json com configurações padrão
 npm init -y
+3. 📦 Instalação do Cypress e Dependências
+Adicione o Cypress e o Faker.js como dependências de desenvolvimento (devDependencies), mantendo o ambiente isolado:
 
-3. 📦 Instalação do Cypress
-Adicione o framework Cypress como uma dependência de desenvolvimento (devDependencies) para que ele fique isolado e mapeado no escopo do seu projeto:
-
+Bash
+# Instalar o Cypress
 npm install cypress --save-dev
 
-Na interface gráfica aberta:
+# Instalar o Faker.js para geração de dados aleatórios (Massa de Teste)
+npm install @faker-js/faker --save-dev
+Após a instalação, abra o Cypress pela primeira vez para gerar a estrutura de pastas:
 
-Selecione a opção E2E Testing.
-
-Aceite a criação automática dos arquivos de configuração padrão (cypress.config.js, etc).
-
-Escolha o navegador de sua preferência (ex: Chrome ou Electron) e clique em Start E2E Testing.
-
-Crie seu primeiro arquivo de especificações (ex: home.cy.js) ou explore os exemplos padrão.
-
-💻 Comandos Úteis de Execução
-Após estruturar seus arquivos de testes dentro da pasta cypress/e2e/, utilize os seguintes comandos conforme a necessidade:
-
-Modo Interativo (Interface Gráfica / Modo Assistido)
-Ideal para o desenvolvimento e depuração (debug) dos testes em tempo real:
-
+Bash
 npx cypress open
+Na interface gráfica: Selecione E2E Testing > Aceite a criação dos arquivos de configuração > Escolha o navegador (Chrome/Electron) > Crie sua primeira spec.
 
-Modo Headless (Linha de Comando / CI/CD)
-Ideal para execuções rápidas em planos de fundo, gerando relatórios diretamente no terminal (essencial para pipelines como Jenkins ou GitHub Actions):
+💻 Comandos Úteis e Scripts (NPM Scripts)
+Para facilitar a execução diária, os comandos abaixo foram mapeados no package.json.
+(Dica no VS Code: Utilize a aba "NPM Scripts" no menu lateral para rodar com um clique).
 
-npx cypress run
+JSON
+"scripts": {
+  "cy:open": "cypress open", 
+  "cy:run": "cypress run"
+}
+npm run cy:open (Modo Interativo): Abre a interface gráfica. Ideal para desenvolvimento e depuração (debug) visual em tempo real.
+
+npm run cy:run (Modo Headless): Executa os testes em segundo plano (terminal). Essencial para pipelines de CI/CD (GitHub Actions, Jenkins), gerando relatórios de forma rápida.
+
+🧩 O "Cinto de Utilidades" do QA (Extensões VS Code)
+Para garantir produtividade máxima na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
+
+Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
+
+Recorder Extensão do Google chrome para mapear um cenário de teste, mapeando cada clique e ação realizada enquanto está ativo.
+
+CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores complexos.
+
+Continue: Widget de IA integrado à IDE.
+
+🤖 Setup do Assistente de IA Local (Ollama)
+Utilizamos o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
+
+Bash
+# Rodar o Modelo (Carregar a IA)
+ollama run qwen2.5-coder:1.5b-base
+
+# Verificar se o serviço está rodando em segundo plano
+systemctl status ollama
 
 
-🛠️ Stack Tecnológica Utilizada
-Sistema Operacional: Linux Mint (Base Debian/Ubuntu)
+⚙️ Integração Contínua (CI/CD) com GitHub Actions
+A infraestrutura deste repositório foi projetada para garantir a validação constante da qualidade do código.
 
-Ambiente de Execução: Node.js v20+
+Gatilhos de Execução: Os testes rodam automaticamente em cada Pull Request direcionado à branch main e através de Nightly Builds (agendados de segunda a sexta-feira).
 
-Gerenciador de Pacotes: NPM / NVM
+Segurança (Branch Protection): Regras configuradas na main exigem a aprovação da pipeline do Cypress (status checks) antes de permitir o merge do código.
 
-Framework de Testes: Cypress v13+
+Gestão de Evidências: Geração de Artifacts ao fim das execuções, salvando automaticamente vídeos e screenshots de testes falhos no servidor do GitHub.
 
-IDE Recomendada: Visual Studio Code
+Notificações: Integração via Webhook com o Discord para alertas em tempo real sobre o status das execuções.
 
-Ao clonar este repositório em uma nova máquina ou nova empresa, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js v20+, basta rodar npm install na raiz do projeto para que o NPM configure todas as dependências automaticamente!
+📌 Cola Rápida: Fluxo de Trabalho Git (O dia a dia do QA)
+Siga este roteiro para garantir um versionamento limpo e seguro ao criar novos testes:
 
-    // Comandos para rodar o Cypress
-    // >NPM Scripts: Focus on NPM Scripts View para aparecer os scripts no menu lateral do VSCode
-    "cy:open": "cypress open",
-    "cy:run": "cypress run"
+1. Preparar uma nova bateria de testes (Garantir que a base está atualizada):
 
-    // faker.js para gerar dados aleatorios nos testes
-    npm install @faker-js/faker --save-dev
+Bash
+git checkout main
+git pull
+2. Criar o desvio (Nova branch para a funcionalidade):
 
-    // Baixar widged Cypress Snippets (CLiff SU)
-    // Baixar widged Open Cypress 
-    // Baixar CSS Selector Helper para ajudar a identificar os seletores
-    // Baixar Kilo code--
-    // Baixar Widget continue e Ollama qwen2.5-coder:1.5b-base
-        Setup do Ollama (Linux)
-        Rodar o Modelo: No terminal, execute o comando para carregar o cérebro da IA:
-        Bash
-        ollama run qwen2.5-coder:1.5b-base
+Bash
+git checkout -b feature/nome-da-sua-branch
+3. Salvar as alterações feitas no código (Commit):
 
-        
-        Verificar o Serviço: Caso precise reiniciar ou checar se ele está rodando em segundo plano:
-        Bash
-        systemctl status ollama
+Bash
+git add .
+git commit -m "chore: descrição clara do que foi automatizado"
+4. Enviar para o GitHub pela primeira vez:
 
-## ⚙️ Integração Contínua (CI/CD) com GitHub Actions
+Bash
+git push -u origin feature/nome-da-sua-branch
+Neste momento, abra o Pull Request no GitHub, aguarde a pipeline do Cypress passar e, se tudo estiver verde, clique em Merge.
 
-A infraestrutura de integração contínua deste repositório foi projetada para garantir um fluxo de trabalho seguro e a validação constante do projeto.
+5. Faxina local (Pós-Merge):
 
-**Principais implementações:**
-* **Gatilhos de Execução:** Os testes rodam automaticamente em cada *Pull Request* direcionado à branch `main` e através de *Nightly Builds* agendados de segunda a sexta-feira.
-* **Segurança e Qualidade:** Regras de *Branch Protection* configuradas na `main`, exigindo a aprovação da pipeline do Cypress (*status checks*) antes de permitir a mesclagem do código.
-* **Gestão de Evidências:** Geração de *Artifacts* ao fim das execuções, salvando automaticamente vídeos e *screenshots* dos testes no servidor do GitHub Actions.
-* **Notificações:** Integração via *Webhook* com o Discord para alertas em tempo real sobre o resultado das execuções diárias.
----
-
-### 📌 Cola Rápida: Fluxo de Trabalho do QA (Git)
-
-**1. Preparar o terreno (garantir que está na main atualizada):**
-`git checkout main`
-`git pull`
-
-**2. Criar o desvio (nova branch):**
-`git checkout -b nome-da-sua-branch`
-
-**3. Salvar as alterações feitas no código:**
-`git add .`
-`git commit -m "chore: descrição do que foi feito"`
-
-**4. Enviar para o GitHub pela primeira vez (vincular a branch):**
-`git push -u origin nome-da-sua-branch`
-
-*(Neste momento, abrir o Pull Request no GitHub, aguardar o Cypress passar e clicar em Merge).*
-
-**5. Faxina local pós-Merge:**
-`git checkout main`
-`git pull`
-`git branch -d nome-da-sua-branch`
-`git fetch -p 
+Bash
+git checkout main
+git pull
+git branch -d feature/nome-da-sua-branch
+git fetch -p
