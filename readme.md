@@ -36,7 +36,7 @@ Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base 
 
 ## 🚀 Guia de Instalação e Configuração (Do Zero)
 
-Siga as etapas abaixo no terminal (`Ctrl + Alt + T`) para preparar o ambiente local com as melhores práticas de mercado.
+Siga as etapas abaixo no terminal (`Ctrl + Alt + T`) para preparar o ambiente local.
 
 ### 1. ⚙️ Configurando o Node.js via NVM
 Para evitar conflitos de versões de pacotes globais e bugs de compatibilidade, a prática recomendada no ecossistema Linux é utilizar o NVM.
@@ -147,7 +147,7 @@ Gestão de Evidências: Geração de Artifacts ao fim das execuções, salvando 
 
 Notificações: Integração via Webhook com o Discord para alertas em tempo real sobre o status das execuções.
 
-### 📌 Cola Rápida: Fluxo de Trabalho Git
+### 📌 Fluxo de Trabalho Git
 Siga este roteiro para garantir um versionamento limpo e seguro ao criar novos testes:
 
 1. Preparar uma nova bateria de testes (Garantir que a base está atualizada):
