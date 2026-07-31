@@ -48,7 +48,7 @@ sudo apt autoremove -y
 ```
 ```bash
 # 2. Baixar e instalar o script oficial do NVM
-curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh) | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 ```bash
 # 3. Atualizar e recarregar as configurações do terminal
@@ -116,13 +116,13 @@ npm run cy:run (Modo Headless): Executa os testes em segundo plano (terminal). E
 
 Para garantir produtividade na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
 
-* **Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
+* Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
 
-* **Recorder Extensão do Google chrome para mapear um cenário de teste, mapeando cada clique e ação realizada enquanto está ativo.
+* Recorder Extensão do Google chrome para mapear um cenário de teste, mapeando cada clique e ação realizada enquanto está ativo.
 
-* **CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores complexos.
+* CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores complexos.
 
-* **Continue: Widget de IA integrado à IDE.
+* Continue: Widget de IA integrado à IDE.
 
 ### Setup do Assistente de IA Local (Ollama)
 Utilizado o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
