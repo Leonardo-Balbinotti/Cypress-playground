@@ -48,7 +48,7 @@ sudo apt autoremove -y
 ```
 ```bash
 # 2. Baixar e instalar o script oficial do NVM
-curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh) | bash
+curl -o- [https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh](https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)
 ```
 ```bash
 # 3. Atualizar e recarregar as configurações do terminal
@@ -64,45 +64,57 @@ node -v
 npm -v
 ```
 
-2. 📂 Inicializando o Projeto
+### 2. 📂 Inicializando o Projeto
 Crie a pasta dedicada para o projeto e inicialize o gerenciador de pacotes:
 
-Bash
+```bash
 mkdir estudos-cypress-playground
 cd estudos-cypress-playground
-
+```
 # Inicializar o package.json com configurações padrão
+```bash
 npm init -y
+```
+
 3. 📦 Instalação do Cypress e Dependências
 Adicione o Cypress e o Faker.js como dependências de desenvolvimento (devDependencies), mantendo o ambiente isolado:
 
-Bash
+```bash
 # Instalar o Cypress
 npm install cypress --save-dev
+```
 
 # Instalar o Faker.js para geração de dados aleatórios (Massa de Teste)
+```bash
 npm install @faker-js/faker --save-dev
+```
+
 Após a instalação, abra o Cypress pela primeira vez para gerar a estrutura de pastas:
 
-Bash
+```bash
 npx cypress open
+```
 Na interface gráfica: Selecione E2E Testing > Aceite a criação dos arquivos de configuração > Escolha o navegador (Chrome/Electron) > Crie sua primeira spec.
 
-💻 Comandos Úteis e Scripts (NPM Scripts)
+### 💻 Comandos Úteis e Scripts (NPM Scripts)
 Para facilitar a execução diária, os comandos abaixo foram mapeados no package.json.
 (Dica no VS Code: Utilize a aba "NPM Scripts" no menu lateral para rodar com um clique).
 
+```bash
 JSON
 "scripts": {
   "cy:open": "cypress open", 
   "cy:run": "cypress run"
 }
+```
+
 npm run cy:open (Modo Interativo): Abre a interface gráfica. Ideal para desenvolvimento e depuração (debug) visual em tempo real.
 
 npm run cy:run (Modo Headless): Executa os testes em segundo plano (terminal). Essencial para pipelines de CI/CD (GitHub Actions, Jenkins), gerando relatórios de forma rápida.
 
-🧩 O "Cinto de Utilidades" do QA (Extensões VS Code)
-Para garantir produtividade máxima na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
+### 🧩 Extensões VS Code e Navegador
+
+Para garantir produtividade na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
 
 Cypress Snippets (Cliff Su): Autocomplete rápido para comandos do Cypress.
 
@@ -112,18 +124,19 @@ CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores com
 
 Continue: Widget de IA integrado à IDE.
 
-🤖 Setup do Assistente de IA Local (Ollama)
-Utilizamos o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
+### 🤖 Setup do Assistente de IA Local (Ollama)
+Utilizado o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
 
-Bash
+```bash
 # Rodar o Modelo (Carregar a IA)
 ollama run qwen2.5-coder:1.5b-base
-
+```
+```bash
 # Verificar se o serviço está rodando em segundo plano
 systemctl status ollama
+```
 
-
-⚙️ Integração Contínua (CI/CD) com GitHub Actions
+### ⚙️ Integração Contínua (CI/CD) com GitHub Actions
 A infraestrutura deste repositório foi projetada para garantir a validação constante da qualidade do código.
 
 Gatilhos de Execução: Os testes rodam automaticamente em cada Pull Request direcionado à branch main e através de Nightly Builds (agendados de segunda a sexta-feira).
@@ -134,33 +147,38 @@ Gestão de Evidências: Geração de Artifacts ao fim das execuções, salvando 
 
 Notificações: Integração via Webhook com o Discord para alertas em tempo real sobre o status das execuções.
 
-📌 Cola Rápida: Fluxo de Trabalho Git (O dia a dia do QA)
+### 📌 Cola Rápida: Fluxo de Trabalho Git
 Siga este roteiro para garantir um versionamento limpo e seguro ao criar novos testes:
 
 1. Preparar uma nova bateria de testes (Garantir que a base está atualizada):
 
-Bash
+```Bash
 git checkout main
 git pull
+```
 2. Criar o desvio (Nova branch para a funcionalidade):
 
-Bash
+```Bash
 git checkout -b feature/nome-da-sua-branch
+```
 3. Salvar as alterações feitas no código (Commit):
 
-Bash
+```Bash
 git add .
 git commit -m "chore: descrição clara do que foi automatizado"
+```
 4. Enviar para o GitHub pela primeira vez:
 
-Bash
+```Bash
 git push -u origin feature/nome-da-sua-branch
+```
 Neste momento, abra o Pull Request no GitHub, aguarde a pipeline do Cypress passar e, se tudo estiver verde, clique em Merge.
 
 5. Faxina local (Pós-Merge):
 
-Bash
+```Bash
 git checkout main
 git pull
 git branch -d feature/nome-da-sua-branch
 git fetch -p
+```
