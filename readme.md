@@ -1,4 +1,4 @@
-# 🧪 Cypress Automation - QA Playground
+# Cypress Automation - QA Playground
 
 ![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -11,7 +11,7 @@ Ele serve como um portfólio prático de automação e também como um **Guia R�
 
 ---
 
-## 🎯 Alvo das Automações
+## Alvo das Automações
 
 Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base os desafios práticos do [QA Playground](https://playground-for-qa.vercel.app/playground), cobrindo validações de elementos web complexos, tais como:
 * Formulários dinâmicos e validações de input.
@@ -21,7 +21,7 @@ Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base 
 
 ---
 
-## 🛠️ Stack Tecnológica & Ambiente
+## Stack Tecnológica & Ambiente
 
 * **Sistema Operacional:** Linux  (Base Debian/Ubuntu)
 * **Ambiente de Execução:** Node.js (v20+ LTS)
@@ -30,15 +30,15 @@ Os cenários de testes e scripts desenvolvidos neste projeto utilizam como base 
 * **Geração de Dados:** Faker.js
 * **IDE Recomendada:** Visual Studio Code (VS Code)
 
-> **💡 Dica:** Ao clonar este repositório em uma nova máquina, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js configurado, basta rodar `npm install` na raiz do projeto para baixar todas as dependências automaticamente!
+> **Dica:** Ao clonar este repositório em uma nova máquina, você não precisará reinstalar tudo manualmente. Caso já possua o Node.js configurado, basta rodar `npm install` na raiz do projeto para baixar todas as dependências automaticamente!
 
 ---
 
-## 🚀 Guia de Instalação e Configuração (Do Zero)
+## Guia de Instalação e Configuração (Do Zero)
 
 Siga as etapas abaixo no terminal (`Ctrl + Alt + T`) para preparar o ambiente local.
 
-### 1. ⚙️ Configurando o Node.js via NVM
+### 1. Configurando o Node.js via NVM
 Para evitar conflitos de versões de pacotes globais e bugs de compatibilidade, a prática recomendada no ecossistema Linux é utilizar o NVM.
 
 ```bash
@@ -64,7 +64,7 @@ node -v
 npm -v
 ```
 
-### 2. 📂 Inicializando o Projeto
+### 2. Inicializando o Projeto
 Crie a pasta dedicada para o projeto e inicialize o gerenciador de pacotes:
 
 ```bash
@@ -76,7 +76,7 @@ cd estudos-cypress-playground
 npm init -y
 ```
 
-### 3. 📦 Instalação do Cypress e Dependências
+### 3. Instalação do Cypress e Dependências
 Adicione o Cypress e o Faker.js como dependências de desenvolvimento (devDependencies), mantendo o ambiente isolado:
 
 ```bash
@@ -112,7 +112,7 @@ npm run cy:open (Modo Interativo): Abre a interface gráfica. Ideal para desenvo
 
 npm run cy:run (Modo Headless): Executa os testes em segundo plano (terminal). Essencial para pipelines de CI/CD (GitHub Actions, Jenkins), gerando relatórios de forma rápida.
 
-### 🧩 Extensões VS Code e Navegador
+### Extensões VS Code e Navegador
 
 Para garantir produtividade na escrita dos testes, mantenha as seguintes extensões instaladas (vscode e navegador):
 
@@ -124,7 +124,7 @@ CSS Selector Helper: Auxilia na identificação, teste e cópia de seletores com
 
 Continue: Widget de IA integrado à IDE.
 
-### 🤖 Setup do Assistente de IA Local (Ollama)
+### Setup do Assistente de IA Local (Ollama)
 Utilizado o modelo local qwen2.5-coder:1.5b-base integrado ao Continue para suporte na escrita de código sem dependência de internet.
 
 ```bash
@@ -136,7 +136,7 @@ ollama run qwen2.5-coder:1.5b-base
 systemctl status ollama
 ```
 
-### ⚙️ Integração Contínua (CI/CD) com GitHub Actions
+### Integração Contínua (CI/CD) com GitHub Actions
 A infraestrutura deste repositório foi projetada para garantir a validação constante da qualidade do código.
 
 Gatilhos de Execução: Os testes rodam automaticamente em cada Pull Request direcionado à branch main e através de Nightly Builds (agendados de segunda a sexta-feira).
@@ -147,7 +147,7 @@ Gestão de Evidências: Geração de Artifacts ao fim das execuções, salvando 
 
 Notificações: Integração via Webhook com o Discord para alertas em tempo real sobre o status das execuções.
 
-### 📌 Fluxo de Trabalho Git
+### Fluxo de Trabalho Git
 Siga este roteiro para garantir um versionamento limpo e seguro ao criar novos testes:
 
 1. Preparar uma nova bateria de testes (Garantir que a base está atualizada):
