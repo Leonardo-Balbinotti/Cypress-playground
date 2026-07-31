@@ -96,7 +96,7 @@ npx cypress open
 ```
 Na interface gráfica: Selecione E2E Testing > Aceite a criação dos arquivos de configuração > Escolha o navegador (Chrome/Electron) > Crie sua primeira spec.
 
-### 💻 Comandos Úteis e Scripts (NPM Scripts)
+### Comandos Úteis e Scripts (NPM Scripts)
 Para facilitar a execução diária, os comandos abaixo foram mapeados no package.json.
 (Dica no VS Code: Utilize a aba "NPM Scripts" no menu lateral para rodar com um clique).
 
