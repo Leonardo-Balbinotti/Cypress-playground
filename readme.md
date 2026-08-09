@@ -89,6 +89,16 @@ npm install cypress --save-dev
 npm install @faker-js/faker --save-dev
 ```
 
+### Instalar o Drag and Drop Para automatizar cenários de clicar e arrastar (como movimentação de cartões em quadros Kanban)
+```bash
+npm install --save-dev @4tw/cypress-drag-drop
+```
+Após instalar o Drag-drop habilite o plugin importando-o no arquivo de suporte do Cypress (cypress/support/e2e.js):
+```bash
+// Adicione esta linha no arquivo e2e.js
+require('@4tw/cypress-drag-drop')
+```
+
 Após a instalação, abra o Cypress pela primeira vez para gerar a estrutura de pastas:
 
 ```bash
