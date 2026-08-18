@@ -13,7 +13,7 @@ describe('Testar o Drag and drop', () => {
     const colunadone = '[data-testid="kanban-column-done"]';
     const cartao6 = '[data-testid="kanban-item-6"]';
 
-    it('Teste movendo os cartões até done e retornando par backlog', () => {
+    it.only('Teste movendo os cartões até done e retornando para backlog', () => {
         //Arrastar os cartões para a coluna To Do
         // Arrastar o cartão 1 para a coluna "To Do"
         cy.get(cartao1).drag(colunatodo);
